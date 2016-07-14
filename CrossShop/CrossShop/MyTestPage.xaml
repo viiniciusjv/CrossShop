@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CrossShop.MyTestPage"
+             >
+  <RelativeLayout>
+    <BoxView Color="Red" x:Name="redBox"
+        RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height,Factor=.01,Constant=0}"
+        RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=1,Constant=0}"
+        RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=.25,Constant=0}" />
+    <ListView
+            x:Name="lstProds"
+            RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=.260,Constant=0}"
+            RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=1,Constant=0}"
+            RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=.740,Constant=0}"
+           
+      >
+      <ListView.ItemTemplate >
+        <DataTemplate>
+          <ViewCell >
+            <StackLayout Orientation="Vertical">
+              
+              <BoxView HorizontalOptions="FillAndExpand" HeightRequest="40" BackgroundColor="Gray"></BoxView>
+            </StackLayout>
+          </ViewCell>
+        </DataTemplate>
+      </ListView.ItemTemplate>
+    </ListView>
+  </RelativeLayout>
+</ContentPage>

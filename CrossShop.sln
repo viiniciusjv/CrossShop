@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrossShop.WinPhone", "Cross
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrossShop", "CrossShop\CrossShop\CrossShop.csproj", "{B7704602-591F-4694-AE88-94C060D0EC30}"
 EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "CrossChop.Shared", "CrossChop.Shared\CrossChop.Shared.shproj", "{4770B5F5-5D46-4790-98D6-D099FDF9E763}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Ad-Hoc|Any CPU = Ad-Hoc|Any CPU

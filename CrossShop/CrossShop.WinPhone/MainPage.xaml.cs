@@ -26,9 +26,8 @@ namespace CrossShop.WinPhone
         {
             this.InitializeComponent();
 
-            this.NavigationCacheMode = NavigationCacheMode.Required;
-
-            LoadApplication(new CrossShop.App());
+            this.NavigationCacheMode = NavigationCacheMode.Required;         
+            LoadApplication(new MyApp());
         }
 
         /// <summary>
