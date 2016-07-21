@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+              xmlns:local="clr-namespace:CrossShop.bl;assembly=CrossShop"
+             x:Class="CrossShop.MenuPage"
+             Title="MenuPagePorra"           
+             >
+  <ContentPage.Icon>
+    <OnPlatform x:TypeArguments="FileImageSource">
+      <OnPlatform.iOS>
+        ic_view_headline_black.png
+      </OnPlatform.iOS>
+      <OnPlatform.Android>
+        ic_view_headline_white.png
+      </OnPlatform.Android>
+      <OnPlatform.WinPhone>
+        assets/ic_view_headline_white.png
+      </OnPlatform.WinPhone>
+    </OnPlatform>
+  </ContentPage.Icon>
+  <StackLayout>
+    <ListView x:FieldModifier="public"  x:Name="lstMenu" >
+      <ListView.ItemTemplate>
+        <DataTemplate>
+          <ViewCell >
+            <StackLayout Orientation="Horizontal" Margin="0" Padding="1" Spacing="0" >
+              <Image Source= "{local:ImageResource CrossShop.res.im_smp.png}" HeightRequest="80" WidthRequest="80" />
+              <Label Text="{Binding Name}" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand"/>
+            </StackLayout>
+          </ViewCell >
+        </DataTemplate>
+      </ListView.ItemTemplate>
+    </ListView>
+  </StackLayout>
+</ContentPage>

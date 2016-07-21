@@ -1,8 +1,23 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="CrossShop.MyTestPage"
-             >
+             x:Class="CrossShop.MyMainPage"
+             xmlns:local="clr-namespace:CrossShop.bl;assembly=CrossShop"
+             Title="MainPage"              
+>
+  <ContentPage.Icon>
+    <OnPlatform x:TypeArguments="FileImageSource">
+      <OnPlatform.iOS>
+        ic_view_headline_black.png
+      </OnPlatform.iOS>
+      <OnPlatform.Android>
+        ic_view_headline_white.png
+      </OnPlatform.Android>
+      <OnPlatform.WinPhone>
+        assets/ic_view_headline_white.png
+      </OnPlatform.WinPhone>
+    </OnPlatform>
+  </ContentPage.Icon>
   <RelativeLayout>
     <BoxView Color="Red" x:Name="redBox"
         RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height,Factor=.01,Constant=0}"
@@ -13,14 +28,16 @@
             RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=.260,Constant=0}"
             RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=1,Constant=0}"
             RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=.740,Constant=0}"
-           
       >
       <ListView.ItemTemplate >
         <DataTemplate>
           <ViewCell >
-            <StackLayout Orientation="Vertical">
-              
-              <BoxView HorizontalOptions="FillAndExpand" HeightRequest="40" BackgroundColor="Gray"></BoxView>
+            <StackLayout Orientation="Vertical" Margin="0" Padding="0" Spacing="0">
+              <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal">
+                <BoxView BackgroundColor="{Binding Color}" HeightRequest="80" WidthRequest="80"></BoxView>
+                <Label Text="{Binding Name}" HorizontalOptions="FillAndExpand"/>
+              </StackLayout>
+              <BoxView HeightRequest="5" BackgroundColor="#D5D5D5" HorizontalOptions="FillAndExpand"></BoxView>
             </StackLayout>
           </ViewCell>
         </DataTemplate>

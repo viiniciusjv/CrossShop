@@ -9,21 +9,15 @@ using Xamarin.Forms;
 
 namespace CrossShop
 {
-    public partial class MyTestPage : ContentPage
+    public partial class MyMainPage : ContentPage
     {
         MainViewModel _vm;
-        
-        public MyTestPage()
+        public MyMainPage()
         {
             InitializeComponent();
             _vm = new MainViewModel();
             _vm.LoadColors();
-            lstProds.ItemsSource = MainViewModel.Colors;
+            lstProds.ItemsSource = _vm.Colors;                
         }
-        protected override void OnAppearing()
-        {
-            base.OnAppearing();
-        }
-
     }
 }

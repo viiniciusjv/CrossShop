@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 
 using Xamarin.Forms;
@@ -11,8 +12,14 @@ namespace CrossShop
     {
         public MyApp()
         {
+            var assembly = typeof(MyApp).GetTypeInfo().Assembly;
+            foreach (var res in assembly.GetManifestResourceNames())
+            {
+                System.Diagnostics.Debug.WriteLine("found resource: " + res);
+            }
+
             // The root page of your application
-            MainPage = new MyTestPage();
+            MainPage = new MasterDetailMain();
             Resources = new ResourceDictionary();
             Resources.Add("ForePrimaryColor", Color.Black);
             Resources.Add("BackPrimaryColor", Color.White);
