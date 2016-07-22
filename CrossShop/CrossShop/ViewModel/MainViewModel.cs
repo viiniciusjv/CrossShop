@@ -11,16 +11,29 @@ namespace CrossShop.ViewModel
     public class MainViewModel
     {
         ColorPrimaryControl cpControl;
-        public  ObservableCollection<ColorsPrimary> Colors
+        OfertasControl ofControl;
+        public ObservableCollection<ColorsPrimary> Colors
         {
             get; set;
         }
-        public MainViewModel() {
-            cpControl = new ColorPrimaryControl();
-        }
-        public void LoadColors() {
-            Colors = new ObservableCollection<ColorsPrimary>(cpControl.Get());            
-        }
 
+        public ObservableCollection<Oferta> Ofertas
+        {
+            get;
+            set;
+        }
+        public MainViewModel()
+        {
+            cpControl = new ColorPrimaryControl();
+            ofControl = new OfertasControl();
+        }
+        public void LoadColors()
+        {
+            Colors = new ObservableCollection<ColorsPrimary>(cpControl.Get());
+        }
+        public void LoadOfertas()
+        {
+            Ofertas = new ObservableCollection<Oferta>(ofControl.Get());
+        }
     }
 }

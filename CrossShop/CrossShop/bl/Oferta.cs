@@ -16,6 +16,9 @@ namespace CrossShop.bl
             {
                 _Prod = value;
                 OnPropertyChanged();
+                OnPropertyChanged("DescricaoProduto");
+                OnPropertyChanged("Desconto");
+                OnPropertyChanged("PrecoReferencia");
             }
         }
         int _QuantidadeDisponivel;
@@ -68,16 +71,84 @@ namespace CrossShop.bl
             {
                 _Preco = value;
                 OnPropertyChanged();
+                OnPropertyChanged("Desconto");
             }
         }
 
+        DateTime _DtValidadeIni;
         public DateTime DtValidadeIni
         {
-            get; set;
+            get
+            {
+                return _DtValidadeIni;
+            }
+            set
+            {
+                _DtValidadeIni = value;
+                OnPropertyChanged();
+            }
         }
-        public DateTime DtValidadeFin                                                                                                         
+        DateTime _DtValidadeFin;
+        public DateTime DtValidadeFin
         {
-            get; set;
+            get
+            {
+                return _DtValidadeFin;
+            }
+            set
+            {
+                _DtValidadeFin = value;
+                OnPropertyChanged();
+            }
+        }
+
+
+        public string DescricaoProduto
+        {
+            get
+            {
+                return _Prod != null ? _Prod.Descricao : string.Empty;
+            }
+        }
+        public double PrecoReferencia
+        {
+            get
+            {
+                return _Prod != null ? _Prod.PrecoNominal : 0;
+            }
+        }
+
+        public double Desconto
+        {
+            get { return ((PrecoReferencia - Preco) / PrecoReferencia) * 100; }
+        }
+        public string DescontoExib
+        {
+            get
+            {
+                return " (-" + ((int)Math.Ceiling(Desconto)).ToString() + "%)";
+            }
+        }
+
+        public bool ExibirRestam
+        {
+            get
+            {
+                return QuantidadeDisponivel < 10;
+            }
+        }
+
+        public string IntervalorValidadeExib
+        {
+            get
+            {
+                if (DtValidadeIni != DtValidadeFin)
+                    return "Validade: " + ((int)Math.Floor(DtValidadeIni.Subtract(DateTime.Now).TotalDays)).ToString() + " a " + ((int)Math.Floor(DtValidadeFin.Subtract(DateTime.Now).TotalDays)).ToString() + " dias";
+                else if (Math.Floor(DtValidadeIni.Subtract(DateTime.Now).TotalDays) > 1)
+                    return "Validade: " + ((int)Math.Floor(DtValidadeIni.Subtract(DateTime.Now).TotalDays)).ToString() + " dias ";
+                else
+                    return "Validade: " + ((int)Math.Floor(DtValidadeIni.Subtract(DateTime.Now).TotalDays)).ToString() + " dia ";
+            }
         }
     }
 }

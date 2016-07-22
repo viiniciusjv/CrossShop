@@ -16,8 +16,8 @@ namespace CrossShop
         {
             InitializeComponent();
             _vm = new MainViewModel();
-            _vm.LoadColors();
-            lstProds.ItemsSource = _vm.Colors;                
+            _vm.LoadOfertas();
+            lstProds.ItemsSource = _vm.Ofertas;                
         }
     }
 }

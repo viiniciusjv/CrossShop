@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CrossShop.MyMainPage"
              xmlns:local="clr-namespace:CrossShop.bl;assembly=CrossShop"
-             Title="MainPage"              
+             Title="Ofertas"
 >
   <ContentPage.Icon>
     <OnPlatform x:TypeArguments="FileImageSource">
@@ -19,6 +19,7 @@
     </OnPlatform>
   </ContentPage.Icon>
   <RelativeLayout>
+
     <BoxView Color="Red" x:Name="redBox"
         RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height,Factor=.01,Constant=0}"
         RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=1,Constant=0}"
@@ -28,16 +29,36 @@
             RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=.260,Constant=0}"
             RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=1,Constant=0}"
             RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=.740,Constant=0}"
+            HasUnevenRows="True"
       >
       <ListView.ItemTemplate >
         <DataTemplate>
           <ViewCell >
             <StackLayout Orientation="Vertical" Margin="0" Padding="0" Spacing="0">
-              <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal">
-                <BoxView BackgroundColor="{Binding Color}" HeightRequest="80" WidthRequest="80"></BoxView>
-                <Label Text="{Binding Name}" HorizontalOptions="FillAndExpand"/>
+              
+              <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal"  Margin="0" Padding="0" Spacing="0">
+                
+                <Image Source= "{local:ImageResource CrossShop.res.im_smp.png}" HeightRequest="80" WidthRequest="80"  Margin="0" />
+                
+                <StackLayout HorizontalOptions="FillAndExpand" Orientation="Vertical" Margin="0" Padding="0" Spacing="0">
+                  
+                  <Label  Text="{Binding DescricaoProduto}" HorizontalOptions="FillAndExpand" Style="{StaticResource stlLabelH1}" VerticalOptions="Start"/>
+                  
+                  <StackLayout Orientation="Horizontal"  Margin="0" Padding="0" Spacing="0" VerticalOptions="Start">
+                    
+                    <Label  Text="De: " HorizontalOptions="Start"  VerticalOptions="Center"/>
+                    <Label  Text="{Binding PrecoReferencia, StringFormat='{0:C}'}" HorizontalOptions="Start"  VerticalOptions="Center"/>
+                    <Label  Text="Por: " HorizontalOptions="Start"  VerticalOptions="Center" Margin="10,0,0,0"/>
+                    <Label  Text="{Binding Preco, StringFormat='{0:C}'}" Style="{StaticResource stlLabelHighLight}" HorizontalOptions="Start" VerticalOptions="Center"/>
+                    <Label  Text="{Binding DescontoExib}" HorizontalOptions="Start" FontSize="11" TextColor="#003C1F" VerticalOptions="Center" Margin="0"/>                  
+                  </StackLayout>                                     
+                  <Label  Text="{Binding IntervalorValidadeExib}" HorizontalOptions="Start"  VerticalOptions="Start" FontSize="11" Margin="0"/>                  
+                </StackLayout>
+              
               </StackLayout>
-              <BoxView HeightRequest="5" BackgroundColor="#D5D5D5" HorizontalOptions="FillAndExpand"></BoxView>
+              
+              <BoxView HeightRequest="2" BackgroundColor="#D5D5D5" HorizontalOptions="FillAndExpand"></BoxView>
+            
             </StackLayout>
           </ViewCell>
         </DataTemplate>

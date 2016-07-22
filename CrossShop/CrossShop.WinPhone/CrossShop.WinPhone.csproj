@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>CrossShop.WinPhone</RootNamespace>
     <AssemblyName>CrossShop.WinPhone</AssemblyName>
-    <DefaultLanguage>en-US</DefaultLanguage>
+    <DefaultLanguage>pt-BR</DefaultLanguage>
     <TargetPlatformVersion>8.1</TargetPlatformVersion>
     <MinimumVisualStudioVersion>12</MinimumVisualStudioVersion>
     <FileAlignment>512</FileAlignment>
@@ -89,6 +89,7 @@
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\CultureManager.cs" />
     <Compile Include="Services\ScreenService.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -97,6 +98,12 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\ic_add_shopping_cart_black_18dp.png" />
+    <Content Include="Assets\ic_add_shopping_cart_black_24dp.png" />
+    <Content Include="Assets\ic_add_shopping_cart_white_18dp.png" />
+    <Content Include="Assets\ic_add_shopping_cart_white_24dp.png" />
+    <Content Include="Assets\ic_alarm_black_18dp.png" />
+    <Content Include="Assets\ic_alarm_white_18dp.png" />
     <Content Include="Assets\ic_view_headline_black.png" />
     <Content Include="Assets\ic_view_headline_white.png" />
     <Content Include="Assets\Logo.scale-240.png" />
