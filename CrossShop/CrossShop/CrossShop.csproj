@@ -40,10 +40,14 @@
     <Compile Include="bl\ColorPrimaryControl.cs" />
     <Compile Include="bl\ColorsPrimary.cs" />
     <Compile Include="bl\Endereco.cs" />
+    <Compile Include="bl\Formatadores.cs" />
     <Compile Include="bl\Fornecedor.cs" />
     <Compile Include="bl\ICultureManager.cs" />
     <Compile Include="bl\ImageResourceExtension.cs" />
     <Compile Include="bl\OfertasControl.cs" />
+    <Compile Include="LoginPage.xaml.cs">
+      <DependentUpon>LoginPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ViewModel\MenuPageViewModel.cs" />
     <Compile Include="bl\MyMenuItem.cs" />
     <Compile Include="bl\ModelDBMaster.cs" />
@@ -125,6 +129,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="MenuPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="LoginPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

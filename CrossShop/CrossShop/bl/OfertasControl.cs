@@ -38,10 +38,10 @@ namespace CrossShop.bl
 
             UnidadesDeMedidas um = new UnidadesDeMedidas() { Descricao = "Pacote" };
 
-            lst.Add(new Oferta() { DtValidadeFin = DateTime.Now.AddDays(5), DtValidadeIni = DateTime.Now.AddDays(3), Fonec = Fornec, Preco = 1, Prod = prod, QuantidadeDisponivel = 100, UM = um });
-            lst.Add(new Oferta() { DtValidadeFin = DateTime.Now.AddDays(6), DtValidadeIni = DateTime.Now.AddDays(4), Fonec = Fornec4, Preco = 5, Prod = prod1, QuantidadeDisponivel = 30, UM = um });
-            lst.Add(new Oferta() { DtValidadeFin = DateTime.Now.AddDays(12), DtValidadeIni = DateTime.Now.AddDays(2), Fonec = Fornec2, Preco = 1.5, Prod = prod2, QuantidadeDisponivel = 25, UM = um });
-            lst.Add(new Oferta() { DtValidadeFin = DateTime.Now.AddDays(7), DtValidadeIni = DateTime.Now.AddDays(5), Fonec = Fornec3, Preco = 4, Prod = prod3, QuantidadeDisponivel = 50, UM = um });
+            lst.Add(new Oferta() { DtValidadeFin = DateTime.Now.AddDays(5), DtValidadeIni = DateTime.Now.AddDays(3), Fonec = Fornec, Preco = 1, Prod = prod, QuantidadeDisponivel = 100, UM = um,TempoMax=120,TempoMin=45 });
+            lst.Add(new Oferta() { DtValidadeFin = DateTime.Now.AddDays(6), DtValidadeIni = DateTime.Now.AddDays(4), Fonec = Fornec4, Preco = 5, Prod = prod1, QuantidadeDisponivel = 30, UM = um, TempoMax = 90, TempoMin = 60});
+            lst.Add(new Oferta() { DtValidadeFin = DateTime.Now.AddDays(12), DtValidadeIni = DateTime.Now.AddDays(2), Fonec = Fornec2, Preco = 1.5, Prod = prod2, QuantidadeDisponivel = 25, UM = um, TempoMax = 110, TempoMin = 50 });
+            lst.Add(new Oferta() { DtValidadeFin = DateTime.Now.AddDays(7), DtValidadeIni = DateTime.Now.AddDays(5), Fonec = Fornec3, Preco = 4, Prod = prod3, QuantidadeDisponivel = 50, UM = um, TempoMax = 30, TempoMin = 45 });
 
             return lst;
         }

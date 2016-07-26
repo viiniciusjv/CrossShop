@@ -150,5 +150,39 @@ namespace CrossShop.bl
                     return "Validade: " + ((int)Math.Floor(DtValidadeIni.Subtract(DateTime.Now).TotalDays)).ToString() + " dia ";
             }
         }
+
+        int _TempoMin;
+        public int TempoMin
+        {
+            get
+            {
+                return _TempoMin;
+            }
+            set
+            {
+                _TempoMin = value;
+                OnPropertyChanged();
+                OnPropertyChanged("IntervaloTempoExib");
+            }
+        }
+        int _TempoMax;
+        public int TempoMax
+        {
+            get
+            {
+                return _TempoMax;
+            }
+
+            set
+            {
+                _TempoMax = value;
+                OnPropertyChanged();
+                OnPropertyChanged("IntervaloTempoExib");
+            }
+        }
+        public string IntervaloTempoExib
+        {
+            get { return Formatadores.MinutesToTime(_TempoMin) + " - " + Formatadores.MinutesToTime(_TempoMax); }
+        }
     }
 }

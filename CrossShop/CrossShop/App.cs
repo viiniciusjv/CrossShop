@@ -13,16 +13,16 @@ namespace CrossShop
     public class MyApp : Application
     {
         public MyApp()
-        {          
+        {
             var assembly = typeof(MyApp).GetTypeInfo().Assembly;
             foreach (var res in assembly.GetManifestResourceNames())
             {
                 System.Diagnostics.Debug.WriteLine("found resource: " + res);
             }
-          
 
-              // The root page of your application
-              MainPage = new MasterDetailMain();
+
+            // The root page of your application
+            MainPage = new LoginPage();
             Resources = new ResourceDictionary();
             Resources.Add("ForePrimaryColor", Color.Black);
             Resources.Add("BackPrimaryColor", Color.White);
@@ -48,8 +48,8 @@ namespace CrossShop
 
             Setter sttDfPageBackColor = new Setter();
             sttDfPageBackColor.Property = TemplatedPage.BackgroundColorProperty;
-            sttDfPageBackColor.Value = Color.White;
-            stlDefaultPageStyle.Setters.Add(sttDfPageBackColor);
+            sttDfPageBackColor.Value = Application.Current.Resources["BackPrimaryColor"];
+            //stlDefaultPageStyle.Setters.Add(sttDfPageBackColor);
 
             Style stlh1LabelStyle = new Style(typeof(Label));
             stlh1LabelStyle.ApplyToDerivedTypes = true;
@@ -68,7 +68,7 @@ namespace CrossShop
             sttTxtFontAtt.Property = Label.FontAttributesProperty;
             sttTxtFontAtt.Value = FontAttributes.Bold;
             stlh1LabelStyle.Setters.Add(sttTxtFontAtt);
-            
+
             Style stlLabelHighLight = new Style(typeof(Label));
             stlLabelHighLight.ApplyToDerivedTypes = true;
 
@@ -99,9 +99,9 @@ namespace CrossShop
 
         protected override void OnStart()
         {
-            ICultureManager ICM =DependencyService.Get<ICultureManager>();
+            ICultureManager ICM = DependencyService.Get<ICultureManager>();
             ICM.CurrentCulture = new CultureInfo("pt-br");
-            ICM.CurrentUICulture= new CultureInfo("pt-br");            
+            ICM.CurrentUICulture = new CultureInfo("pt-br");
             //CultureInfo.DefaultThreadCurrentCulture = new CultureInfo("pt-br");
             //CultureInfo.DefaultThreadCurrentUICulture = new CultureInfo("pt-br");
         }
